@@ -98,7 +98,7 @@ class PaysController extends Controller
             //$session->getFlashBag()->add('success', 'Pays édité');
         }
 
-        return $this->render('AlexBundle:Pays:listePays.html.twig', array(
+        return $this->render('AlexBundle:Pays:editPays.html.twig', array(
             'pays' => $pays,
             'formEditPays' => $form->createView()
         ));

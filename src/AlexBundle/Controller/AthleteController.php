@@ -13,7 +13,7 @@ use Symfony\Component\BrowserKit\Request;
 class AthleteController extends Controller
 {
     /**
-     * @Route("/athlete", name="athlete")
+     * @Route("/athlete", name="athletes_list")
      * @Template()
      */
     public function athleteAction(Request $request) {

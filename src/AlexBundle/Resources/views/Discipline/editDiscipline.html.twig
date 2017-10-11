@@ -1,0 +1,12 @@
+{% extends 'AlexBundle::index.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Editer la discipline '{{ discipline.nom }}'</h1>
+        {{ form_start(formEditDiscipline) }}
+            {{ form_widget(formEditDiscipline.nom) }}
+        {{ form_end(formEditDiscipline) }}
+
+        <a href="{{ path('disciplines_list') }}" class="button">Retour à la liste des disciplines</a>
+    </div>
+{% endblock %}
