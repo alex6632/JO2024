@@ -1,0 +1,33 @@
+{% extends 'AlexBundle::index.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>Liste des disciplines</h1>
+
+        <div class="button" id="jsOpenModalCreatePays">Ajouter une discipline ?</div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for discipline in listeDisciplines %}
+                <tr>
+                    <td>{{ discipline.nom }}</td>
+                    <td>
+                        <a href="{{ path('discipline_delete', { 'id' : discipline.id } )}}">Supprimer</a>
+                        <a href="{{ path('discipline_edit', { 'id' : discipline.id } )}}">Editer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal">
+        {{ form_start(formNvDiscipline) }}
+        {{ form_end(formNvDiscipline) }}
+    </div>
+{% endblock %}
