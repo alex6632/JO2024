@@ -1,0 +1,37 @@
+{% extends 'AlexBundle::index.html.twig' %}
+{% block title %}{{ 'countries.list'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h1>Liste des pays</h1>
+
+    <div class="button" id="jsOpenModalCreatePays">Ajouter un pays ?</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Drapeau</th>
+                <th>Pays</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pays in listePays %}
+            <tr>
+                <td>{{ pays.nom }}</td>
+                <td><img src="{{ asset('images/uploads/drapeaux/'~ pays.drapeau) }}"></td>
+                <td>
+                    <a href="{{ path('pays_delete', { 'id' : pays.id } )}}">Supprimer</a>
+                    <a href="{{ path('pays_edit', { 'id' : pays.id } )}}">Editer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <div class="modal">
+        {{ form_start(nouveauPays) }}
+        {{ form_end(nouveauPays) }}
+    </div>
+{% endblock %}

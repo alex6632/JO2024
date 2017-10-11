@@ -1,0 +1,22 @@
+// _c-button.scss
+
+.button,
+button {
+  display: inline-block;
+  font-family: font(primary);
+  font-size: 14px;
+  font-weight: 400;
+  color: color(foreground, invert);
+  background-color: color(secondary, dark);
+  padding: 15px;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  @include transition();
+
+  &:hover {
+    color: color(secondary, dark);
+    background-color: color(primary);
+    @include transition();
+  }
+}

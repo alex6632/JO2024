@@ -1,0 +1,24 @@
+{
+  "name": "jo2024",
+  "version": "1.0.0",
+  "description": "Jeux Olympiques de Paris 2024",
+  "main": "Gulpfile.js",
+  "private": true,
+  "scripts": {
+    "watch": "gulp watch",
+    "prod": "gulp dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex6632/JO2024"
+  },
+  "author": "Alexandre Simonin",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.0"
+  }
+}

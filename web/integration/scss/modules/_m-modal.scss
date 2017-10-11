@@ -1,0 +1,25 @@
+// m_-modal.scss
+
+.modal {
+  //position: absolute;
+  left: 0; top: 0;
+  //opacity: 0;
+  //transform: translateY(-100%);
+  width: 100%;
+  @include transition();
+
+  @include respond-to('large') {
+    width: 600px;
+  }
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    @include transition();
+
+    @include respond-to('large') {
+      left: 50%; top: 100px;
+      margin-left: -300px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} JO2024 {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/main.css') }}" />
+</head>
+<body>
+<header class="main-header">
+    <ul class="main-header__list">
+        <li class="main-header__list__item"><a class="main-header__list__item__link" href="/pays">Liste des pays</a></li>
+        <li class="main-header__list__item"><a class="main-header__list__item__link" href="#disciplines">Liste des disciplines</a></li>
+        <li class="main-header__list__item"><a class="main-header__list__item__link" href="#athletes">Liste des athletes</a></li>
+    </ul>
+</header>
+
+{% block body %}{% endblock %}
+<script src="{{ asset('dist/js/main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+// _c-form.scss
+
+.label {
+
+}
+
+.input {
+
+
+  &::-webkit-input-placeholder{
+    
+  }
+
+  &::-moz-input-placeholder{
+    
+  }
+
+}
+
+form {
+
+  label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+  }
+  input {
+    padding: 5px 10px;
+  }
+}
