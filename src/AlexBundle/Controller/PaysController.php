@@ -34,16 +34,16 @@ class PaysController extends Controller
             $file = $pays->getDrapeau();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move(
-                $this->getParameter('upload_directory'),
+                $this->getParameter('upload_drapeau'),
                 $fileName
             );
             $pays->setDrapeau($fileName);
 
             $em->persist($pays);
             $em->flush();
-            // success notice...
+
             $session = $this->get('session');
-            $session->getFlashBag()->add('success', 'Pays ajouté');
+            $session->getFlashBag()->add('success', 'Pays crée !');
         }
 
         $listePays = $em->getRepository('AlexBundle:Pays')->findAll();
@@ -68,7 +68,10 @@ class PaysController extends Controller
 
         $em->remove($pays);
         $em->flush();
-        //$session->getFlashBag()->add('success', 'Pays supprimé');
+
+        $session = $this->get('session');
+        $session->getFlashBag()->add('success', 'Pays supprimé !');
+
         return $this->redirectToRoute('pays_list');
     }
 
@@ -89,7 +92,7 @@ class PaysController extends Controller
             $file = $pays->getDrapeau();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move(
-                $this->getParameter('upload_directory'),
+                $this->getParameter('upload_drapeau'),
                 $fileName
             );
             $pays->setDrapeau($fileName);
@@ -97,10 +100,10 @@ class PaysController extends Controller
             $em->persist($pays);
             $em->flush();
 
+            $session = $this->get('session');
+            $session->getFlashBag()->add('success', 'Pays édité !');
+
             return $this->redirectToRoute('pays_list');
-            // success notice...
-            //$session = $this->get('session');
-            //$session->getFlashBag()->add('success', 'Pays édité');
         } else {
             // On supprime l'ancien drapeau
             $ancienDrapeau = $pays->getDrapeau();

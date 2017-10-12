@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class DisciplineController extends Controller
 {
     /**
-     * @Route("/discipline", name="disciplines_list")
+     * @Route("/disciplines", name="disciplines_list")
      * @Template()
      */
     public function disciplineAction(Request $request) {
@@ -24,7 +24,7 @@ class DisciplineController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $discipline = new Discipline();
-        //$discipline->setNom('Natation');
+
         $form = $this->createForm(DisciplineType::class, $discipline);
         $form->add('send', SubmitType::class, ['label' => 'Créer la discipline']);
         $form->handleRequest($request);
@@ -32,6 +32,9 @@ class DisciplineController extends Controller
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($discipline);
             $em->flush();
+
+            $session = $this->get('session');
+            $session->getFlashBag()->add('success', 'Discipline créée !');
         }
 
         $listeDiscipline = $em->getRepository('AlexBundle:Discipline')->findAll();
@@ -51,7 +54,10 @@ class DisciplineController extends Controller
         $discipline = $em->getRepository('AlexBundle:Discipline')->find($id);
         $em->remove($discipline);
         $em->flush();
-        //$session->getFlashBag()->add('success', 'Pays supprimé');
+
+        $session = $this->get('session');
+        $session->getFlashBag()->add('success', 'Discipline supprimé !');
+
         return $this->redirectToRoute('disciplines_list');
     }
 
@@ -71,6 +77,9 @@ class DisciplineController extends Controller
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($discipline);
             $em->flush();
+
+            $session = $this->get('session');
+            $session->getFlashBag()->add('success', 'Discipline édité !');
 
             return $this->redirectToRoute('disciplines_list');
         }

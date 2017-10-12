@@ -2,7 +2,11 @@
 
 namespace AlexBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +17,22 @@ class AthleteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('dateNaissance')->add('photo')->add('pays')->add('discipline');
+        $builder
+            ->add('nom', TextType::class)
+            ->add('prenom', TextType::class)
+            ->add('dateNaissance', BirthdayType::class)
+            ->add('photo', FileType::class, array(
+                'data_class' => null))
+            ->add('pays', EntityType::class, array(
+                'class'    => 'AlexBundle:Pays',
+                'multiple' => false,
+                'expanded' => false
+            ))
+            ->add('discipline', EntityType::class, array(
+                'class'    => 'AlexBundle:Discipline',
+                'multiple' => false,
+                'expanded' => false
+            ));
     }
     
     /**
@@ -25,14 +44,4 @@ class AthleteType extends AbstractType
             'data_class' => 'AlexBundle\Entity\Athlete'
         ));
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'alexbundle_athlete';
-    }
-
-
 }

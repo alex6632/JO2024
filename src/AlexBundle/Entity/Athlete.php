@@ -2,6 +2,7 @@
 
 namespace AlexBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -166,6 +167,54 @@ class Athlete
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param \AlexBundle\Entity\Pays $pays
+     *
+     * @return Athlete
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return \AlexBundle\Entity\Pays
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set discipline
+     *
+     * @param \AlexBundle\Entity\Discipline $discipline
+     *
+     * @return Athlete
+     */
+    public function setDiscipline($discipline)
+    {
+        $this->discipline = $discipline;
+
+        return $this;
+    }
+
+    /**
+     * Get discipline
+     *
+     * @return \AlexBundle\Entity\Discipline
+     */
+    public function getDiscipline()
+    {
+        return $this->discipline;
     }
 }
 

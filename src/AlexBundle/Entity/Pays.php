@@ -105,5 +105,9 @@ class Pays
     {
         return $this->drapeau;
     }
+
+    public function __toString() {
+        return $this->nom;
+    }
 }
 
