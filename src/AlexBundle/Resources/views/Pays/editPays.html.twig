@@ -1,9 +1,12 @@
 {% extends 'AlexBundle::index.html.twig' %}
 
 {% block body %}
-    <h1>{{ pays.nom }}</h1>
-    {{ form_start(form) }}
-        {{ form_widget(form.nom) }}
-        <img src="{{ asset('images/uploads/drapeaux/'~pays.drapeau) }}" />
-    {{ form_end(form) }}
+    <h1>Editer le pays '{{ pays.nom }}'</h1>
+    {{ form_start(formEditPays) }}
+        {{ form_widget(formEditPays.nom) }}
+        <div>
+            <img src="{{ asset('images/uploads/drapeaux/'~pays.drapeau) }}" />
+            {{ form_widget(formEditPays.drapeau) }}
+        </div>
+    {{ form_end(formEditPays) }}
 {% endblock %}

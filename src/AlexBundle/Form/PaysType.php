@@ -14,7 +14,9 @@ class PaysType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class)
-            ->add('drapeau', FileType::class);
+            ->add('drapeau', FileType::class, array(
+                'data_class' => null
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

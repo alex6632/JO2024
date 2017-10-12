@@ -3,8 +3,8 @@
 namespace AlexBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use AlexBundle\Form\PaysType;
@@ -61,6 +61,11 @@ class PaysController extends Controller
     public function deletePaysAction(Request $request, $id) {
         $em = $this->getDoctrine()->getEntityManager();
         $pays = $em->getRepository('AlexBundle:Pays')->find($id);
+
+        $drapeau = $pays->getDrapeau();
+        $drapeauPath = $this->get('kernel')->getRootDir().'/../web/images/uploads/drapeaux/' .$drapeau;
+        unlink($drapeauPath);
+
         $em->remove($pays);
         $em->flush();
         //$session->getFlashBag()->add('success', 'Pays supprimé');
@@ -74,8 +79,6 @@ class PaysController extends Controller
     public function editPaysAction(Request $request, $id) {
         $em = $this->getDoctrine()->getEntityManager();
         $pays = $em->getRepository('AlexBundle:Pays')->find($id);
-        //var_dump($pays);
-        //die();
 
         $form = $this->createForm(PaysType::class, $pays);
         $form->add('send', SubmitType::class, ['label' => 'Editer le pays']);
@@ -93,9 +96,16 @@ class PaysController extends Controller
 
             $em->persist($pays);
             $em->flush();
+
+            return $this->redirectToRoute('pays_list');
             // success notice...
             //$session = $this->get('session');
             //$session->getFlashBag()->add('success', 'Pays édité');
+        } else {
+            // On supprime l'ancien drapeau
+            $ancienDrapeau = $pays->getDrapeau();
+            $ancienDrapeauPath = $this->get('kernel')->getRootDir().'/../web/images/uploads/drapeaux/'.$ancienDrapeau;
+            unlink($ancienDrapeauPath);
         }
 
         return $this->render('AlexBundle:Pays:editPays.html.twig', array(

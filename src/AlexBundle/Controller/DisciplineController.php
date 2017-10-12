@@ -71,6 +71,8 @@ class DisciplineController extends Controller
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($discipline);
             $em->flush();
+
+            return $this->redirectToRoute('disciplines_list');
         }
 
         return $this->render('AlexBundle:Discipline:editDiscipline.html.twig', array(
