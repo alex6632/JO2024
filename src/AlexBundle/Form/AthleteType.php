@@ -18,17 +18,20 @@ class AthleteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('dateNaissance', BirthdayType::class)
+            ->add('nom', TextType::class, array('label' => 'athlete.form.name'))
+            ->add('prenom', TextType::class, array('label' => 'athlete.form.firstname'))
+            ->add('dateNaissance', BirthdayType::class, array('label' => 'athlete.form.birthday'))
             ->add('photo', FileType::class, array(
+                'label' => 'athlete.form.picture',
                 'data_class' => null))
             ->add('pays', EntityType::class, array(
+                'label' => 'athlete.form.country',
                 'class'    => 'AlexBundle:Pays',
                 'multiple' => false,
                 'expanded' => false
             ))
             ->add('discipline', EntityType::class, array(
+                'label' => 'athlete.form.discipline',
                 'class'    => 'AlexBundle:Discipline',
                 'multiple' => false,
                 'expanded' => false

@@ -1,15 +1,15 @@
 {% extends 'AlexBundle::index.html.twig' %}
 {% block body %}
     <div class="container">
-        <h1>Liste des disciplines</h1>
+        <h1>{{ 'disciplines.title'|trans }}</h1>
 
-        <div class="button" id="jsOpenModalCreatePays">Ajouter une discipline ?</div>
+        <div class="button" id="jsOpenModalCreatePays">{{ 'discipline.add'|trans }}</div>
 
         <table>
             <thead>
             <tr>
-                <th>Nom</th>
-                <th>Action</th>
+                <th>{{ 'table.discipline'|trans }}</th>
+                <th>{{ 'table.action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -17,8 +17,8 @@
                 <tr>
                     <td>{{ discipline.nom }}</td>
                     <td>
-                        <a href="{{ path('discipline_delete', { 'id' : discipline.id } )}}">Supprimer</a>
-                        <a href="{{ path('discipline_edit', { 'id' : discipline.id } )}}">Editer</a>
+                        <a href="{{ path('discipline_delete', { 'id' : discipline.id } )}}">{{ 'table.action.delete'|trans }}</a>
+                        <a href="{{ path('discipline_edit', { 'id' : discipline.id } )}}">{{ 'table.action.edit'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}

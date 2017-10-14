@@ -31,7 +31,7 @@ class Discipline
     private $nom;
 
     /**
-     * @OneToMany(targetEntity="Athlete", mappedBy="discipline")
+     * @OneToMany(targetEntity="Athlete", mappedBy="discipline", cascade={"remove"})
      */
     private $athletes;
 

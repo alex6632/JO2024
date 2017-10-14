@@ -1,20 +1,22 @@
 {% extends 'AlexBundle::index.html.twig' %}
 
 {% block body %}
-    <h1>Editer l'athlete '{{ athlete.prenom }} {{ athlete.nom }}'</h1>
-    {{ form_start(formEditAthlete) }}
-        <div>
-            <img src="{{ asset('images/uploads/photos/'~athlete.photo) }}" />
-            {{ form_widget(formEditAthlete.photo) }}
-        </div>
-        {{ form_widget(formEditAthlete.prenom) }}
-        {{ form_widget(formEditAthlete.nom) }}
-        {{ form_widget(formEditAthlete.dateNaissance) }}
-        <div>
-            {{ form_widget(formEditAthlete.pays) }}
-        </div>
-        <div>
-            {{ form_widget(formEditAthlete.discipline) }}
-        </div>
-    {{ form_end(formEditAthlete) }}
+    <div class="container">
+        <h1>{{ 'athlete.edit.title'|trans }} '{{ athlete.prenom }} {{ athlete.nom }}'</h1>
+        {{ form_start(formEditAthlete) }}
+            <div>
+                <img src="{{ asset('images/uploads/photos/'~athlete.photo) }}" />
+                {{ form_widget(formEditAthlete.photo) }}
+            </div>
+            {{ form_widget(formEditAthlete.prenom) }}
+            {{ form_widget(formEditAthlete.nom) }}
+            {{ form_widget(formEditAthlete.dateNaissance) }}
+            <div>
+                {{ form_widget(formEditAthlete.pays) }}
+            </div>
+            <div>
+                {{ form_widget(formEditAthlete.discipline) }}
+            </div>
+        {{ form_end(formEditAthlete) }}
+    </div>
 {% endblock %}

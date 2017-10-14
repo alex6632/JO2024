@@ -11,9 +11,12 @@
 <body>
 <header class="main-header">
     <ul class="main-header__list">
-        <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{ path('pays_list') }}">Liste des pays</a></li>
-        <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{ path('disciplines_list') }}">Liste des disciplines</a></li>
-        <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{ path('athletes_list') }}">Liste des athletes</a></li>
+        <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{
+            path('pays_list') }}">{{ 'menu.country'|trans }}</a></li>
+        <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{
+            path('disciplines_list') }}">{{ 'menu.disciplines'|trans }}</a></li>
+        <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{
+            path('athletes_list') }}">{{ 'menu.athletes'|trans }}</a></li>
     </ul>
 </header>
 
@@ -21,6 +24,11 @@
 
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="alert alert-success" role="alert">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="alert alert-error" role="alert">
         {{ flashMessage }}
     </div>
 {% endfor %}

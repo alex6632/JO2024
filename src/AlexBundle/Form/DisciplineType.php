@@ -12,7 +12,7 @@ class DisciplineType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom', TextType::class);
+        $builder->add('nom', TextType::class, array('label' => 'discipline.form.name'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

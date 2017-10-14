@@ -1,16 +1,16 @@
 {% extends 'AlexBundle::index.html.twig' %}
 {% block body %}
     <div class="container">
-    <h1>Liste des pays</h1>
+    <h1>{{ 'pays.title'|trans }}</h1>
 
-    <div class="button" id="jsOpenModalCreatePays">Ajouter un pays ?</div>
+    <div class="button" id="jsOpenModalCreatePays">{{ 'pays.add'|trans }}</div>
 
     <table>
         <thead>
             <tr>
-                <th>Pays</th>
-                <th>Drapeau</th>
-                <th>Action</th>
+                <th>{{ 'table.country'|trans }}</th>
+                <th>{{ 'table.flag'|trans }}</th>
+                <th>{{ 'table.action'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,8 @@
                 <td>{{ pays.nom }}</td>
                 <td><img src="{{ asset('images/uploads/drapeaux/'~ pays.drapeau) }}"></td>
                 <td>
-                    <a href="{{ path('pays_delete', { 'id' : pays.id } )}}">Supprimer</a>
-                    <a href="{{ path('pays_edit', { 'id' : pays.id } )}}">Editer</a>
+                    <a href="{{ path('pays_delete', { 'id' : pays.id } )}}">{{ 'table.action.delete'|trans }}</a>
+                    <a href="{{ path('pays_edit', { 'id' : pays.id } )}}">{{ 'table.action.edit'|trans }}</a>
                 </td>
             </tr>
             {% endfor %}

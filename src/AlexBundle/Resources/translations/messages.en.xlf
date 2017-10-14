@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+<file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+  <body>
+    <trans-unit id="00">
+      <source>menu.country</source>
+      <target>List of countries</target>
+    </trans-unit>
+    <trans-unit id="01">
+      <source>menu.disciplines</source>
+      <target>List of disciplines</target>
+    </trans-unit>
+    <trans-unit id="02">
+      <source>menu.athletes</source>
+      <target>List of athletes</target>
+    </trans-unit>
+    <trans-unit id="1">
+      <source>pays.title</source>
+      <target>List of countries</target>
+    </trans-unit>
+    <trans-unit id="101">
+      <source>disciplines.title</source>
+      <target>List of disciplines</target>
+    </trans-unit>
+    <trans-unit id="102">
+      <source>athletes.title</source>
+      <target>List of athletes</target>
+    </trans-unit>
+    <trans-unit id="2">
+      <source>pays.add</source>
+      <target>Add a country ?</target>
+    </trans-unit>
+    <trans-unit id="201">
+      <source>discipline.add</source>
+      <target>Add a discipline ?</target>
+    </trans-unit>
+    <trans-unit id="202">
+      <source>athlete.add</source>
+      <target>Add an athlète ?</target>
+    </trans-unit>
+    <trans-unit id="3">
+      <source>pays.form.name</source>
+      <target>Name of the country</target>
+    </trans-unit>
+    <trans-unit id="300">
+      <source>discipline.form.name</source>
+      <target>Name of the discipline</target>
+    </trans-unit>
+    <trans-unit id="4">
+      <source>pays.form.flag</source>
+      <target>Import a flag</target>
+    </trans-unit>
+    <trans-unit id="5">
+      <source>pays.form.create</source>
+      <target>Create the country</target>
+    </trans-unit>
+    <trans-unit id="51">
+      <source>discipline.form.create</source>
+      <target>Create the discipline</target>
+    </trans-unit>
+    <trans-unit id="52">
+      <source>athlete.form.create</source>
+      <target>Create the athlete</target>
+    </trans-unit>
+    <trans-unit id="6">
+      <source>table.country</source>
+      <target>Country</target>
+    </trans-unit>
+    <trans-unit id="600">
+      <source>table.discipline</source>
+      <target>Discipline</target>
+    </trans-unit>
+    <trans-unit id="601">
+      <source>table.picture</source>
+      <target>Picture</target>
+    </trans-unit>
+    <trans-unit id="602">
+      <source>table.firstname</source>
+      <target>First name</target>
+    </trans-unit>
+    <trans-unit id="603">
+      <source>table.lastname</source>
+      <target>Last name</target>
+    </trans-unit>
+    <trans-unit id="604">
+      <source>table.birthday</source>
+      <target>Birthday</target>
+    </trans-unit>
+    <trans-unit id="7">
+      <source>table.flag</source>
+      <target>Flag</target>
+    </trans-unit>
+    <trans-unit id="8">
+      <source>table.action</source>
+      <target>Action</target>
+    </trans-unit>
+    <trans-unit id="9">
+      <source>table.action.delete</source>
+      <target>Delete</target>
+    </trans-unit>
+    <trans-unit id="10">
+      <source>table.action.edit</source>
+      <target>Edit</target>
+    </trans-unit>
+    <trans-unit id="11">
+      <source>pays.edit.title</source>
+      <target>Edit the country</target>
+    </trans-unit>
+    <trans-unit id="111">
+      <source>discipline.edit.title</source>
+      <target>Edit the discipline</target>
+    </trans-unit>
+    <trans-unit id="112">
+      <source>athlete.edit.title</source>
+      <target>Edit the athlete</target>
+    </trans-unit>
+    <trans-unit id="12">
+      <source>edit.btn</source>
+      <target>Save</target>
+    </trans-unit>
+    <trans-unit id="13">
+      <source>cancel.btn</source>
+      <target>Cancel</target>
+    </trans-unit>
+    <trans-unit id="14">
+      <source>athlete.form.name</source>
+      <target>Name</target>
+    </trans-unit>
+    <trans-unit id="15">
+      <source>athlete.form.firstname</source>
+      <target>Firstname</target>
+    </trans-unit>
+    <trans-unit id="16">
+      <source>athlete.form.birthday</source>
+      <target>Birthday</target>
+    </trans-unit>
+    <trans-unit id="17">
+      <source>athlete.form.picture</source>
+      <target>Picture</target>
+    </trans-unit>
+    <trans-unit id="18">
+      <source>athlete.form.country</source>
+      <target>Country</target>
+    </trans-unit>
+    <trans-unit id="19">
+      <source>athlete.form.discipline</source>
+      <target>Discipline</target>
+    </trans-unit>
+    <trans-unit id="s1">
+      <source>discipline.create.succes</source>
+      <target>Discipline created</target>
+    </trans-unit>
+    <trans-unit id="s2">
+      <source>pays.create.succes</source>
+      <target>Country created</target>
+    </trans-unit>
+    <trans-unit id="s3">
+      <source>athlete.create.succes</source>
+      <target>Athlete created</target>
+    </trans-unit>
+    <trans-unit id="s4">
+      <source>discipline.edit.succes</source>
+      <target>Discipline edited</target>
+    </trans-unit>
+    <trans-unit id="s5">
+      <source>pays.edit.succes</source>
+      <target>Country edited</target>
+    </trans-unit>
+    <trans-unit id="s6">
+      <source>athlete.edit.succes</source>
+      <target>Athlete edited</target>
+    </trans-unit>
+    <trans-unit id="s7">
+      <source>discipline.delete.succes</source>
+      <target>Discipline deleted</target>
+    </trans-unit>
+    <trans-unit id="s8">
+      <source>pays.delete.succes</source>
+      <target>Country deleted</target>
+    </trans-unit>
+    <trans-unit id="s9">
+      <source>athlete.delete.succes</source>
+      <target>Athlete deleted</target>
+    </trans-unit>
+    <trans-unit id="e1">
+      <source>create.error</source>
+      <target>Error during creation</target>
+    </trans-unit>
+    <trans-unit id="e2">
+      <source>edit.error</source>
+      <target>Error during edition</target>
+    </trans-unit>
+  </body>
+</file>
+</xliff>

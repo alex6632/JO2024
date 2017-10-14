@@ -16,17 +16,17 @@ use AlexBundle\Entity\Pays;
 class PaysController extends Controller
 {
     /**
-     * @Route("/pays", name="pays_list")
+     * @Route("/{_locale}/pays", name="pays_list")
      * @Template()
      */
     public function paysAction(Request $request) {
-
         $em = $this->getDoctrine()->getEntityManager();
 
         $pays = new Pays();
         $form = $this->createForm(PaysType::class, $pays);
-        $form->add('send', SubmitType::class, ['label' => 'Créer le pays']);
+        $form->add('send', SubmitType::class, ['label' => 'pays.form.create']);
         $form->handleRequest($request);
+        $session = $this->get('session');
 
         if($form->isSubmitted() && $form->isValid()) {
 
@@ -42,8 +42,16 @@ class PaysController extends Controller
             $em->persist($pays);
             $em->flush();
 
-            $session = $this->get('session');
-            $session->getFlashBag()->add('success', 'Pays crée !');
+            $session->getFlashBag()->add(
+                'success',
+                $this->get('translator')->trans('pays.create.succes')
+            );
+        }
+        if($form->isSubmitted() && !$form->isValid()){
+            $session->getFlashBag()->add(
+                'error',
+                $this->get('translator')->trans('create.error')
+            );
         }
 
         $listePays = $em->getRepository('AlexBundle:Pays')->findAll();
@@ -55,7 +63,7 @@ class PaysController extends Controller
     }
 
     /**
-     * @Route("/pays/delete/{id}", name="pays_delete")
+     * @Route("/{_locale}/pays/delete/{id}", name="pays_delete")
      * @Template()
      */
     public function deletePaysAction(Request $request, $id) {
@@ -70,13 +78,16 @@ class PaysController extends Controller
         $em->flush();
 
         $session = $this->get('session');
-        $session->getFlashBag()->add('success', 'Pays supprimé !');
+        $session->getFlashBag()->add(
+            'success',
+            $this->get('translator')->trans('pays.delete.succes')
+        );
 
         return $this->redirectToRoute('pays_list');
     }
 
     /**
-     * @Route("/pays/edit/{id}", name="pays_edit")
+     * @Route("/{_locale}/pays/edit/{id}", name="pays_edit")
      * @Template()
      */
     public function editPaysAction(Request $request, $id) {
@@ -84,8 +95,9 @@ class PaysController extends Controller
         $pays = $em->getRepository('AlexBundle:Pays')->find($id);
 
         $form = $this->createForm(PaysType::class, $pays);
-        $form->add('send', SubmitType::class, ['label' => 'Editer le pays']);
+        $form->add('send', SubmitType::class, ['label' => 'edit.btn']);
         $form->handleRequest($request);
+        $session = $this->get('session');
 
         if($form->isSubmitted() && $form->isValid()) {
 
@@ -100,8 +112,10 @@ class PaysController extends Controller
             $em->persist($pays);
             $em->flush();
 
-            $session = $this->get('session');
-            $session->getFlashBag()->add('success', 'Pays édité !');
+            $session->getFlashBag()->add(
+                'success',
+                $this->get('translator')->trans('pays.edit.succes')
+            );
 
             return $this->redirectToRoute('pays_list');
         } else {
@@ -109,6 +123,12 @@ class PaysController extends Controller
             $ancienDrapeau = $pays->getDrapeau();
             $ancienDrapeauPath = $this->get('kernel')->getRootDir().'/../web/images/uploads/drapeaux/'.$ancienDrapeau;
             unlink($ancienDrapeauPath);
+        }
+        if($form->isSubmitted() && !$form->isValid()){
+            $session->getFlashBag()->add(
+                'error',
+                $this->get('translator')->trans('edit.error')
+            );
         }
 
         return $this->render('AlexBundle:Pays:editPays.html.twig', array(

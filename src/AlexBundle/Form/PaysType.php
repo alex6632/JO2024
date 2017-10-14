@@ -13,8 +13,9 @@ class PaysType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class)
+            ->add('nom', TextType::class, array('label' => 'pays.form.name'))
             ->add('drapeau', FileType::class, array(
+                'label'      => 'pays.form.flag',
                 'data_class' => null
             ));
     }

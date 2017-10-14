@@ -1,20 +1,20 @@
 {% extends 'AlexBundle::index.html.twig' %}
 {% block body %}
     <div class="container">
-        <h1>Liste des athlètes</h1>
+        <h1>{{ 'athletes.title'|trans }}</h1>
 
-        <div class="button" id="jsOpenModalCreateAthlete">Ajouter un athlète ?</div>
+        <div class="button" id="jsOpenModalCreateAthlete">{{ 'athlete.add'|trans }}</div>
 
         <table>
             <thead>
             <tr>
-                <th>Photo</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Date de naissance</th>
-                <th>Pays</th>
-                <th>Discipline</th>
-                <th>Action</th>
+                <th>{{ 'table.picture'|trans }}</th>
+                <th>{{ 'table.firstname'|trans }}</th>
+                <th>{{ 'table.lastname'|trans }}</th>
+                <th>{{ 'table.birthday'|trans }}</th>
+                <th>{{ 'table.country'|trans }}</th>
+                <th>{{ 'table.discipline'|trans }}</th>
+                <th>{{ 'table.action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -27,8 +27,8 @@
                     <td><img src="{{ asset('images/uploads/drapeaux/'~ athlete.pays.drapeau) }}"></td>
                     <td>{{ athlete.discipline.nom }}</td>
                     <td>
-                        <a href="{{ path('athlete_delete', { 'id' : athlete.id } )}}">Supprimer</a>
-                        <a href="{{ path('athlete_edit', { 'id' : athlete.id } )}}">Editer</a>
+                        <a href="{{ path('athlete_delete', { 'id' : athlete.id } )}}">{{ 'table.action.delete'|trans }}</a>
+                        <a href="{{ path('athlete_edit', { 'id' : athlete.id } )}}">{{ 'table.action.edit'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}
