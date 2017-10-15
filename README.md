@@ -37,4 +37,4 @@ gulp dist
 ```shell
 gulp watch
 ```
-_More tasks see: [Gruntfile.js](web/Gruntfile.js)_
+_More tasks see: [Gulpfile.js](web/Gulpfile.js)_
