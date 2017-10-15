@@ -26,13 +26,13 @@
 <div class="block-alert">
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="alert alert--success" role="alert">
-        <div class="close">X Fermer</div>
+        {#<div class="close">X Fermer</div>#}
         {{ flashMessage }}
     </div>
 {% endfor %}
 {% for flashMessage in app.session.flashbag.get('error') %}
     <div class="alert alert--error" role="alert">
-        <div class="close">X Fermer</div>
+        {#<div class="close">X Fermer</div>#}
         {{ flashMessage }}
     </div>
 {% endfor %}
