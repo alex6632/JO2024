@@ -19,4 +19,20 @@ button {
     background-color: color(primary);
     @include transition();
   }
+
+  &--transp {
+    background-color: transparent;
+    color: color('foreground');
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: -0.5px;
+    padding: 8px 5px;
+    margin-top: 8px;
+    border-bottom: solid 1px color('foreground');
+
+    &:hover {
+      background-color: color('foreground');
+      color: color('foreground', 'invert');
+    }
+  }
 }

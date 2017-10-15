@@ -1,7 +1,7 @@
 {% extends 'AlexBundle::index.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container editForm">
         <h1>{{ 'discipline.edit.title'|trans }} '{{ discipline.nom }}'</h1>
         {{ form_start(formEditDiscipline) }}
             {{ form_widget(formEditDiscipline.nom) }}

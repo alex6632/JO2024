@@ -3,14 +3,14 @@
     <div class="container">
     <h1>{{ 'pays.title'|trans }}</h1>
 
-    <div class="button" id="jsOpenModalCreatePays">{{ 'pays.add'|trans }}</div>
+    <div class="button button--transp jsModalCreatePays">{{ 'pays.add'|trans }}</div>
 
     <table>
         <thead>
             <tr>
                 <th>{{ 'table.country'|trans }}</th>
                 <th>{{ 'table.flag'|trans }}</th>
-                <th>{{ 'table.action'|trans }}</th>
+                <th class="action">{{ 'table.action'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,9 @@
     </table>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="jsModalCreatePays">
+        <div class="close">X Fermer</div>
+        <h2>{{ 'pays.modal.title'|trans }}</h2>
         {{ form_start(nouveauPays) }}
         {{ form_end(nouveauPays) }}
     </div>

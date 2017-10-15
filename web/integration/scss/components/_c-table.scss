@@ -1,0 +1,44 @@
+// _c-table.scss
+
+table {
+  width: 100%;
+
+  thead {
+    background-color: color('secondary');
+    color: color('foreground', 'invert');
+    tr {
+      th {
+        text-align: left;
+        padding: 5px 10px;
+        font-weight: 300;
+
+        &.action {
+          width: 130px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: rgba(color('social','facebook'),.1);
+      }
+      td {
+        padding: 5px 10px;
+
+        a {
+          font-size: 11px;
+          color: blue;
+          text-transform: uppercase;
+
+          &:first-child {
+            float: left;
+          }
+          &:last-child {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

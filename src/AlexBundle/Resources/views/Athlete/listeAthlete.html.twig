@@ -3,7 +3,8 @@
     <div class="container">
         <h1>{{ 'athletes.title'|trans }}</h1>
 
-        <div class="button" id="jsOpenModalCreateAthlete">{{ 'athlete.add'|trans }}</div>
+        <div class="button button--transp jsModalCreateAthlete">{{
+            'athlete.add'|trans }}</div>
 
         <table>
             <thead>
@@ -14,7 +15,7 @@
                 <th>{{ 'table.birthday'|trans }}</th>
                 <th>{{ 'table.country'|trans }}</th>
                 <th>{{ 'table.discipline'|trans }}</th>
-                <th>{{ 'table.action'|trans }}</th>
+                <th class="action">{{ 'table.action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -36,7 +37,9 @@
         </table>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="jsModalCreateAthlete">
+        <div class="close">X Fermer</div>
+        <h2>{{ 'athlete.modal.title'|trans }}</h2>
         {{ form_start(formNvAthlete) }}
         {{ form_end(formNvAthlete) }}
     </div>

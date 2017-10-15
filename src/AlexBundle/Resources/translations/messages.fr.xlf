@@ -146,6 +146,18 @@
       <source>athlete.form.discipline</source>
       <target>Discipline</target>
     </trans-unit>
+    <trans-unit id="20">
+      <source>athlete.modal.title</source>
+      <target>Nouvel athlète</target>
+    </trans-unit>
+    <trans-unit id="21">
+      <source>discipline.modal.title</source>
+      <target>Nouvelle discipline</target>
+    </trans-unit>
+    <trans-unit id="22">
+      <source>pays.modal.title</source>
+      <target>Nouveau pays</target>
+    </trans-unit>
     <trans-unit id="s1">
       <source>discipline.create.succes</source>
       <target>La discipline a bien été créée</target>
@@ -189,6 +201,10 @@
     <trans-unit id="e2">
       <source>edit.error</source>
       <target>Erreur lors de l'édition</target>
+    </trans-unit>
+    <trans-unit id="copy">
+      <source>copyright</source>
+      <target>Exercice PHP avec Symfony</target>
     </trans-unit>
   </body>
 </file>

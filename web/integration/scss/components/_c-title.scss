@@ -1,27 +1,21 @@
 // _c-title.scss
 
-h1, h2 {
+h1 {
+  &,
   &.title {
-    font-family: font(secondary);
-    color: color(foreground, invert);
+    font-family: font('primary');
+    color: color(foreground);
+    font-weight: 300;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 25px;
 
-    &--invert {
-      color: color(foreground);
+    &::after {
+      display: block;
+      content: "";
+      background-color: color('primary');
+      width: 30px; height: 2px;
+      margin: 10px 0 15px;
     }
-  }
-
-  .container .container__inner & {
-    color: color(secondary, dark);
-    font-family: font(secondary);
-  }
-}
-
-p {
-  .container .container__inner & {
-    font-family: font(primary);
-    font-size: 14px;
-    color: color(secondary, dark);
-    line-height: 24px;
-    margin: 10px 0;
   }
 }

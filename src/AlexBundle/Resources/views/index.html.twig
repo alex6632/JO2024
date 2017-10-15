@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/main.css') }}" />
 </head>
 <body>
+<div class="modal-bg"></div>
 <header class="main-header">
     <ul class="main-header__list">
         <li class="main-header__list__item"><a class="main-header__list__item__link" href="{{
@@ -22,16 +23,25 @@
 
 {% block body %}{% endblock %}
 
+<div class="block-alert">
 {% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert--success" role="alert">
+        <div class="close">X Fermer</div>
         {{ flashMessage }}
     </div>
 {% endfor %}
 {% for flashMessage in app.session.flashbag.get('error') %}
-    <div class="alert alert-error" role="alert">
+    <div class="alert alert--error" role="alert">
+        <div class="close">X Fermer</div>
         {{ flashMessage }}
     </div>
 {% endfor %}
+</div>
+
+
+<footer class="main-footer">
+    <p>{{ 'copyright'|trans }}</p>
+</footer>
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.min.js"

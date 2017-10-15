@@ -3,13 +3,13 @@
     <div class="container">
         <h1>{{ 'disciplines.title'|trans }}</h1>
 
-        <div class="button" id="jsOpenModalCreatePays">{{ 'discipline.add'|trans }}</div>
+        <div class="button button--transp jsModalCreateDiscipline">{{ 'discipline.add'|trans }}</div>
 
         <table>
             <thead>
             <tr>
                 <th>{{ 'table.discipline'|trans }}</th>
-                <th>{{ 'table.action'|trans }}</th>
+                <th class="action">{{ 'table.action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +26,9 @@
         </table>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="jsModalCreateDiscipline">
+        <div class="close">X Fermer</div>
+        <h2>{{ 'discipline.modal.title'|trans }}</h2>
         {{ form_start(formNvDiscipline) }}
         {{ form_end(formNvDiscipline) }}
     </div>

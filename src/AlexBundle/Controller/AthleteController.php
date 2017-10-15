@@ -118,7 +118,7 @@ class AthleteController extends Controller
                 $this->get('translator')->trans('athlete.edit.succes')
             );
 
-            return $this->redirectToRoute('pays_list');
+            return $this->redirectToRoute('athletes_list');
         } else {
             // On supprime l'ancien drapeau
             $athletePhoto = $athlete->getPhoto();

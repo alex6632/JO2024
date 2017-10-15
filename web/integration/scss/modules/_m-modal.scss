@@ -1,14 +1,16 @@
 // m_-modal.scss
 
 .modal {
-  //position: absolute;
+  position: fixed;
   left: 0; top: 0;
-  //opacity: 0;
-  //transform: translateY(-100%);
+  opacity: 0;
+  transform: translateY(-100%);
   width: 100%;
+  background-color: color('background', 'light');
   @include transition();
 
   @include respond-to('large') {
+    left: 50%; margin-left: -300px;
     width: 600px;
   }
 
@@ -16,10 +18,36 @@
     opacity: 1;
     transform: translateY(0);
     @include transition();
+    z-index: 999999;
 
     @include respond-to('large') {
-      left: 50%; top: 100px;
-      margin-left: -300px;
+      transform: translateY(100px);
     }
+  }
+
+  h2 {
+    background: color('secondary', 'dark');
+    color: color('foreground', 'invert');
+    font-weight: 300;
+    border-bottom: solid 2px color('primary');
+    padding: 15px 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.close {
+  font-size: 10px;
+  font-weight: 300;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  text-transform: uppercase;
+  color: color('foreground', 'invert');
+  cursor: pointer;
+  @include transition();
+
+  &:hover {
+    color: color('primary');
+    @include transition();
   }
 }
