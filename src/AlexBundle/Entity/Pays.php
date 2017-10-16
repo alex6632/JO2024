@@ -38,7 +38,7 @@ class Pays
     private $drapeau;
 
     /**
-     * @OneToMany(targetEntity="Athlete", mappedBy="pays", cascade={"remove"})
+     * @OneToMany(targetEntity="Athlete", mappedBy="pays")
      */
     private $athletes;
 

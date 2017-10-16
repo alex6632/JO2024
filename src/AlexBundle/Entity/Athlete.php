@@ -52,7 +52,7 @@ class Athlete
 
     /**
      * @ORM\ManyToOne(targetEntity="Pays", inversedBy="athletes")
-     * @ORM\JoinColumn(name="pays_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="pays_id", referencedColumnName="id", onDelete="SET NULL", nullable=true)
      */
     private $pays;
 

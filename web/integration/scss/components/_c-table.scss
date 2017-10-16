@@ -37,6 +37,12 @@ table {
           &:last-child {
             float: right;
           }
+
+          &.no-float {
+            display: block;
+            float: none;
+            text-align: center;
+          }
         }
       }
     }
