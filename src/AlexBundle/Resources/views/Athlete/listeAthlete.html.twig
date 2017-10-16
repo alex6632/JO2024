@@ -26,13 +26,21 @@
                     <td>{{ athlete.nom }}</td>
                     <td>{{ athlete.dateNaissance|date("d/m/Y") }}</td>
                     <td>
-                        {% if foo is defined %}
+                        {% if athlete.pays.drapeau is defined %}
                             <img src="{{ asset('images/uploads/drapeaux/'~ athlete.pays.drapeau) }}">
                         {% else %}
                             <a href="{{ path('pays_list') }}" class="no-float">Créer</a>
                         {% endif %}
                     </td>
-                    <td>{{ athlete.discipline.nom }}</td>
+                    <td>
+                        {% if athlete.discipline.nom is defined %}
+                            {{ athlete.discipline.nom }}
+                        {% elseif disciplines %}
+                            <a href="{{ path('athlete_edit', { 'id' : athlete.id } )}}" class="no-float">{{ 'table.action.edit'|trans }}</a>
+                        {% else %}
+                            <a href="{{ path('disciplines_list') }}" class="no-float">Créer</a>
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{{ path('athlete_delete', { 'id' : athlete.id } )}}">{{ 'table.action.delete'|trans }}</a>
                         <a href="{{ path('athlete_edit', { 'id' : athlete.id } )}}">{{ 'table.action.edit'|trans }}</a>

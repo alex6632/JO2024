@@ -55,10 +55,12 @@ class AthleteController extends Controller
             );
         }
 
+        $disciplines = $em->getRepository('AlexBundle:Discipline')->findAll();
         $listeAthletes = $em->getRepository('AlexBundle:Athlete')->findAll();
 
         return $this->render('AlexBundle:Athlete:listeAthlete.html.twig', array(
             'listeAthletes' => $listeAthletes,
+            'disciplines' => $disciplines,
             'formNvAthlete' => $form->createView()
         ));
     }

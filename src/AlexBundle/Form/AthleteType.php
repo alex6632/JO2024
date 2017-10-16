@@ -28,13 +28,15 @@ class AthleteType extends AbstractType
                 'label' => 'athlete.form.country',
                 'class'    => 'AlexBundle:Pays',
                 'multiple' => false,
+                'required' => false,
                 'expanded' => false
             ))
             ->add('discipline', EntityType::class, array(
                 'label' => 'athlete.form.discipline',
                 'class'    => 'AlexBundle:Discipline',
                 'multiple' => false,
-                'expanded' => false
+                'expanded' => false,
+                'required' => false
             ));
     }
     
