@@ -30,7 +30,6 @@ class VilleController extends Controller
         $form->add('send', SubmitType::class, ['label' => 'ville.form.create']);
         $form->handleRequest($request);
 
-        // ---------- SUBMIT FORM WITH AJAX ----------
         if($request->isXmlHttpRequest()) {
             $form = $request->get('ville');
             // dans var/logs/dev.log
@@ -59,7 +58,6 @@ class VilleController extends Controller
             }
             return new JsonResponse($msg);
         }
-        // ---------- FIN AJAX ----------
 
         $listeVilles = $em->getRepository('AlexBundle:Ville')->findAll();
 

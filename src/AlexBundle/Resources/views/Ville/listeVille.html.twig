@@ -27,7 +27,6 @@
                                 <a class="jsCloseModalConfirmDelete">{{ 'modal.no'|trans }}</a>
                             </div>
                         </div>
-                        {#<a href="{{ path('villes_edit', { 'id' : ville.id } )}}">{{ 'table.action.edit'|trans }}</a>#}
                         <input type="hidden" value="{{ path('villes_show', { 'id' :ville.id }) }}" data-urlEdit="{{ path('villes_edit', { 'id' :ville.id }) }}" class="jsUrlModal_edit{{ ville.id }}">
                         <a class="jsModalEdit" id="edit{{ ville.id }}">{{ 'table.action.edit'|trans }}</a>
                     </td>
