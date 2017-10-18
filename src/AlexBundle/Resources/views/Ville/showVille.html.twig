@@ -1,0 +1,9 @@
+{#{% extends 'AlexBundle::index.html.twig' %}#}
+{#{% block body %}#}
+    {#<div class="container editForm">#}
+        <h2>{{ 'ville.edit.title'|trans }} '{{ ville.nom }}'</h2>
+        {{ form_start(formEditVille) }}
+        {{ form_widget(formEditVille.nom) }}
+        {{ form_end(formEditVille) }}
+    {#</div>#}
+{#{% endblock %}#}

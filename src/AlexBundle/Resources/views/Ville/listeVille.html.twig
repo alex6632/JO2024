@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         {#<a href="{{ path('villes_edit', { 'id' : ville.id } )}}">{{ 'table.action.edit'|trans }}</a>#}
-                        <input type="hidden" value="{{ path('villes_edit', { 'id' :ville.id }) }}" class="jsUrlModal_edit{{ ville.id }}">
+                        <input type="hidden" value="{{ path('villes_show', { 'id' :ville.id }) }}" data-urlEdit="{{ path('villes_edit', { 'id' :ville.id }) }}" class="jsUrlModal_edit{{ ville.id }}">
                         <a class="jsModalEdit" id="edit{{ ville.id }}">{{ 'table.action.edit'|trans }}</a>
                     </td>
                 </tr>
@@ -36,6 +36,8 @@
             </tbody>
         </table>
     </div>
+
+    <div class="modal" id="jsModalEditVille"></div>
 
     <div class="modal" id="jsModalCreateVille">
         <div class="close">X Fermer</div>

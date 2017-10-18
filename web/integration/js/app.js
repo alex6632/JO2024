@@ -51,6 +51,7 @@
           },
           error: function(response) {
             console.log(response);
+            $('.block-alert').append('<div class="alert alert--error" role="alert">' + response.msg + '</div>');
           }
         })
       });
@@ -65,7 +66,6 @@
         $.ajax({
           url: urlList,
           type: 'GET',
-          //data: $(this).serialize(),
           success: function(response) {
             if(response.type == 'success') {
               $('#lineVille' + id + ' .modal .choice a').prop( "disabled", false );
@@ -74,36 +74,53 @@
               $('#lineVille' + id).remove();
               $('.block-alert').append('<div class="alert alert--success" role="alert">' + response.msg + '</div>');
             }
-          },
-          error: function(response) {
-            console.log(response);
+          }
+        })
+      });
+    },
+    ajaxShow: function () {
+      $('.jsModalEdit').on('click', function(e) {
+        e.preventDefault();
+        var id      = $(this).attr('id'),
+            urlList = $(this).parent().find('.jsUrlModal_' + id).val(),
+            urlEdit = $(this).parent().find('.jsUrlModal_' + id).attr('data-urlEdit'),
+            idModal = $('#jsModalEditVille');
+
+        $.ajax({
+          url: urlList,
+          type: 'GET',
+          dataType : 'html',
+          success: function(response) {
+            idModal.addClass('show');
+            $('.modal-bg').fadeIn();
+            idModal.append(response + '<input type="hidden" value="' + urlEdit + '" data-id="' + id + '" class="jsUrlEdit">').addClass('show');
           }
         })
       });
     },
     ajaxUpdate: function (el) {
-      $('.jsModalEdit').on('click', function(e) {
+      $(document).on('submit','#jsModalEdit' + el + ' form',function(e) {
         e.preventDefault();
-        var id      = $(this).attr('id'),
-            urlList = $(this).parent().find('.jsUrlModal_' + id).val();
-        //$('#lineVille' + id + ' .modal .choice a').prop( "disabled", true );
+        var urlEdit = $(this).next().val(),
+            idModal = $('#jsModalEditVille');
+
+        $('#jsModalEdit' + el + ' form button').prop( "disabled", true );
 
         $.ajax({
-          url: urlList,
-          type: 'GET',
-          //data: $(this).serialize(),
+          url: urlEdit,
+          type: 'POST',
+          data: $(this).serialize(),
           success: function(response) {
             if(response.type == 'success') {
-              console.log(response);
-              //$('#lineVille' + id + ' .modal .choice a').prop( "disabled", false );
-              //$('.modal').removeClass('show');
-              // $('.modal-bg').fadeOut();
-              // $('#lineVille' + id).remove();
-              // $('.block-alert').append('<div class="alert alert--success" role="alert">' + response.msg + '</div>');
+              $('#jsModalEdit' + el + ' form button').prop( "disabled", false );
+              idModal.removeClass('show');
+              $('.modal-bg').fadeOut();
+              $('#lineVille' + response.idVille + ' td').first().html(response.nom);
+              $('.block-alert').append('<div class="alert alert--success" role="alert">' + response.msg + '</div>');
             }
           },
           error: function(response) {
-            console.log(response);
+            $('.block-alert').append('<div class="alert alert--error" role="alert">' + response.msg + '</div>');
           }
         })
       });
@@ -112,22 +129,29 @@
 
   $(document).ready(function () {
 
+    // Open create modal events
     app.openModal('jsModalCreatePays');
     app.openModal('jsModalCreateDiscipline');
     app.openModal('jsModalCreateAthlete');
     app.openModal('jsModalCreateVille');
     app.openModalConfirmDelete();
 
+    // Close modals events
     app.closeModal('.close');
     app.closeModalConfirmDelete('.jsCloseModalConfirmDelete');
 
+    // Hide flash message
     app.closeFlashMessage();
 
+    // Init create city ajax
     app.ajaxCreate('Ville');
     app.ajaxCreate('Discipline');
 
+    // Init delete city ajax
     app.ajaxDelete('Ville');
 
+    // Init update city ajax
+    app.ajaxShow();
     app.ajaxUpdate('Ville');
   });
 })(jQuery);
