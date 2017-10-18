@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
@@ -22,6 +23,7 @@ class DisciplineController extends Controller
     public function disciplineAction(Request $request) {
 
         $em = $this->getDoctrine()->getEntityManager();
+        $logger = $this->get('logger');
 
         $discipline = new Discipline();
 
@@ -30,7 +32,37 @@ class DisciplineController extends Controller
         $form->handleRequest($request);
         $session = $this->get('session');
 
-        if($form->isSubmitted() && $form->isValid()) {
+        // ---------- SUBMIT FORM WITH AJAX ----------
+        if($request->isXmlHttpRequest()) {
+            $form = $request->get('discipline');
+            // dans var/logs/dev.log
+            //$logger->error('FORM name : '.$form['name']);
+
+            if(empty($form['nom'])) {
+                // msg d'erreur
+                $msg = array(
+                    'type' => 'error',
+                    'msg'  => $this->get('translator')->trans('discipline.emptyName')
+                );
+            } else  {
+                $em->persist($discipline);
+                $em->flush();
+                $msg = array(
+                    'type' => 'success',
+                    'msg'  => 'Discipline ajoutée'
+                );
+            }
+
+//            $session->getFlashBag()->add(
+//                'success',
+//                $this->get('translator')->trans('discipline.create.succes')
+//            );
+
+            return new JsonResponse($msg);
+        }
+        // ---------- FIN AJAX ----------
+
+        /*if($form->isSubmitted() && $form->isValid()) {
             $em->persist($discipline);
             $em->flush();
 
@@ -44,7 +76,7 @@ class DisciplineController extends Controller
                 'error',
                 $this->get('translator')->trans('create.error')
             );
-        }
+        }*/
 
         $listeDiscipline = $em->getRepository('AlexBundle:Discipline')->findAll();
 

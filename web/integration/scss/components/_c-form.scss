@@ -61,5 +61,10 @@ form {
   }
   button {
     float: right;
+
+    &:disabled {
+      background-color: color('gray', 'middle');
+      cursor: not-allowed;
+    }
   }
 }

@@ -1,0 +1,47 @@
+{% extends 'AlexBundle::index.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1>{{ 'villes.title'|trans }}</h1>
+
+        <div class="button button--transp jsModalCreateVille">{{ 'ville.add'|trans }}</div>
+
+        <table id="listVille">
+            <thead>
+            <tr>
+                <th>{{ 'table.ville'|trans }}</th>
+                <th class="action">{{ 'table.action'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for key, ville in listeVilles %}
+                <tr id="lineVille{{ ville.id }}">
+                    <td>{{ ville.nom }}</td>
+                    <td>
+                        <a class="jsModalConfirmDelete">{{ 'table.action.delete'|trans }}</a>
+                        <div class="modal">
+                            <div class="close">X {{ 'modal.close'|trans }}</div>
+                            <h2>{{ 'modal.confirmMessage'|trans }}</h2>
+                            <div class="choice">
+                                <input type="hidden" value="{{ path('villes_delete', { 'id' :ville.id }) }}" class="jsUrlModal{{ ville.id }}">
+                                <a class="jsActionDelete" id="{{ ville.id }}">{{ 'modal.yes'|trans }}</a>
+                                <a class="jsCloseModalConfirmDelete">{{ 'modal.no'|trans }}</a>
+                            </div>
+                        </div>
+                        {#<a href="{{ path('villes_edit', { 'id' : ville.id } )}}">{{ 'table.action.edit'|trans }}</a>#}
+                        <input type="hidden" value="{{ path('villes_edit', { 'id' :ville.id }) }}" class="jsUrlModal_edit{{ ville.id }}">
+                        <a class="jsModalEdit" id="edit{{ ville.id }}">{{ 'table.action.edit'|trans }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="jsModalCreateVille">
+        <div class="close">X Fermer</div>
+        <h2>{{ 'ville.modal.title'|trans }}</h2>
+        <input type="hidden" value="{{ path("villes_list") }}" id="jsUrlList">
+        {{ form_start(formNvVille) }}
+        {{ form_end(formNvVille) }}
+    </div>
+{% endblock %}

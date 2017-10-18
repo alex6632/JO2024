@@ -29,6 +29,7 @@
     <div class="modal" id="jsModalCreateDiscipline">
         <div class="close">X Fermer</div>
         <h2>{{ 'discipline.modal.title'|trans }}</h2>
+        <input type="hidden" value="{{ path("disciplines_list") }}" id="disciplines_list_url">
         {{ form_start(formNvDiscipline) }}
         {{ form_end(formNvDiscipline) }}
     </div>

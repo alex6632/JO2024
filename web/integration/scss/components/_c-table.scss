@@ -29,7 +29,9 @@ table {
         a {
           font-size: 11px;
           color: blue;
+          text-decoration: underline;
           text-transform: uppercase;
+          cursor: pointer;
 
           &:first-child {
             float: left;

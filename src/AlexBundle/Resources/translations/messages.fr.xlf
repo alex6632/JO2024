@@ -14,6 +14,10 @@
       <source>menu.athletes</source>
       <target>Liste des athlètes</target>
     </trans-unit>
+    <trans-unit id="03">
+      <source>menu.villes</source>
+      <target>Liste des villes</target>
+    </trans-unit>
     <trans-unit id="1">
       <source>pays.title</source>
       <target>Liste des pays</target>
@@ -26,6 +30,10 @@
       <source>athletes.title</source>
       <target>Liste des athlètes</target>
     </trans-unit>
+    <trans-unit id="103">
+      <source>villes.title</source>
+      <target>Liste des villes</target>
+    </trans-unit>
     <trans-unit id="2">
       <source>pays.add</source>
       <target>Ajouter un pays ?</target>
@@ -37,6 +45,10 @@
     <trans-unit id="202">
       <source>athlete.add</source>
       <target>Ajouter un athlète ?</target>
+    </trans-unit>
+    <trans-unit id="203">
+      <source>ville.add</source>
+      <target>Ajouter une ville ?</target>
     </trans-unit>
     <trans-unit id="3">
       <source>pays.form.name</source>
@@ -62,6 +74,10 @@
       <source>athlete.form.create</source>
       <target>Créer l'athlète</target>
     </trans-unit>
+    <trans-unit id="53">
+      <source>ville.form.create</source>
+      <target>Créer la ville</target>
+    </trans-unit>
     <trans-unit id="6">
       <source>table.country</source>
       <target>Pays</target>
@@ -85,6 +101,10 @@
     <trans-unit id="604">
       <source>table.birthday</source>
       <target>Date de naissance</target>
+    </trans-unit>
+    <trans-unit id="605">
+      <source>table.ville</source>
+      <target>Ville</target>
     </trans-unit>
     <trans-unit id="7">
       <source>table.flag</source>
@@ -113,6 +133,10 @@
     <trans-unit id="112">
       <source>athlete.edit.title</source>
       <target>Editer l'athlète</target>
+    </trans-unit>
+    <trans-unit id="113">
+      <source>ville.edit.title</source>
+      <target>Editer la ville</target>
     </trans-unit>
     <trans-unit id="12">
       <source>edit.btn</source>
@@ -157,6 +181,10 @@
     <trans-unit id="22">
       <source>pays.modal.title</source>
       <target>Nouveau pays</target>
+    </trans-unit>
+    <trans-unit id="23">
+      <source>ville.modal.title</source>
+      <target>Nouvelle ville</target>
     </trans-unit>
     <trans-unit id="s1">
       <source>discipline.create.succes</source>
@@ -205,6 +233,46 @@
     <trans-unit id="copy">
       <source>copyright</source>
       <target>Exercice PHP avec Symfony</target>
+    </trans-unit>
+    <trans-unit id="200">
+      <source>discipline.emptyName</source>
+      <target>Veuillez entrer une discipline</target>
+    </trans-unit>
+    <trans-unit id="1001">
+      <source>ville.emptyName</source>
+      <target>Veuillez entrer une ville</target>
+    </trans-unit>
+    <trans-unit id="1002">
+      <source>ville.createdSuccess</source>
+      <target>Ville ajoutée</target>
+    </trans-unit>
+    <trans-unit id="1003">
+      <source>ville.deletedSuccess</source>
+      <target>Ville supprimée</target>
+    </trans-unit>
+    <trans-unit id="1004">
+      <source>ville.updatedSuccess</source>
+      <target>Ville mise à jour</target>
+    </trans-unit>
+    <trans-unit id="1005">
+      <source>modal.confirmMessage</source>
+      <target>Êtes vous sûr ?</target>
+    </trans-unit>
+    <trans-unit id="1006">
+      <source>modal.yes</source>
+      <target>Oui</target>
+    </trans-unit>
+    <trans-unit id="1007">
+      <source>modal.no</source>
+      <target>Non</target>
+    </trans-unit>
+    <trans-unit id="1008">
+      <source>modal.close</source>
+      <target>Fermer</target>
+    </trans-unit>
+    <trans-unit id="1009">
+      <source>ville.form.name</source>
+      <target>Nom de la ville</target>
     </trans-unit>
   </body>
 </file>

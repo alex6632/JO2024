@@ -91,8 +91,12 @@ class PaysController extends Controller
      * @Template()
      */
     public function editPaysAction(Request $request, $id) {
+
         $em = $this->getDoctrine()->getEntityManager();
         $pays = $em->getRepository('AlexBundle:Pays')->find($id);
+
+        $ancienDrapeau = $pays->getDrapeau();
+        $ancienDrapeauPath = $this->get('kernel')->getRootDir().'/../web/images/uploads/drapeaux/'.$ancienDrapeau;
 
         $form = $this->createForm(PaysType::class, $pays);
         $form->add('send', SubmitType::class, ['label' => 'edit.btn']);
@@ -112,17 +116,14 @@ class PaysController extends Controller
             $em->persist($pays);
             $em->flush();
 
+            unlink($ancienDrapeauPath);
+
             $session->getFlashBag()->add(
                 'success',
                 $this->get('translator')->trans('pays.edit.succes')
             );
 
             return $this->redirectToRoute('pays_list');
-        } else {
-            // On supprime l'ancien drapeau
-            $ancienDrapeau = $pays->getDrapeau();
-            $ancienDrapeauPath = $this->get('kernel')->getRootDir().'/../web/images/uploads/drapeaux/'.$ancienDrapeau;
-            unlink($ancienDrapeauPath);
         }
         if($form->isSubmitted() && !$form->isValid()){
             $session->getFlashBag()->add(
@@ -130,7 +131,6 @@ class PaysController extends Controller
                 $this->get('translator')->trans('edit.error')
             );
         }
-
         return $this->render('AlexBundle:Pays:editPays.html.twig', array(
             'pays' => $pays,
             'formEditPays' => $form->createView()

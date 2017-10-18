@@ -33,6 +33,29 @@
     padding: 15px 30px;
     margin-bottom: 20px;
   }
+
+  .choice {
+    overflow: hidden;
+    padding: 30px;
+
+    a {
+      @extend .button;
+      width: 40%;
+      text-align: center;
+
+      &:first-child {
+        float: left;
+      }
+      &:last-child {
+        float: right;
+      }
+      &:hover {
+        color: color(secondary, dark);
+        background-color: color(primary);
+        @include transition();
+      }
+    }
+  }
 }
 
 .close {
